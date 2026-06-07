@@ -4,6 +4,9 @@ import java.util.Vector;
 import java.util.Enumeration;
 
 public class Customer {
+    private static final int REGULAR_RENTAL_DAYS = 2;
+    private static final int CHILDRENS_RENTAL_DAYS = 3;
+
     public Customer(String name) {
         this.name = name;
     }
@@ -30,27 +33,27 @@ public class Customer {
             switch (each.getMovie().getPriceCode()) {
                 case Movie.REGULAR:
                     thisAmount += 2;
-                    if (each.getDaysRented() > 2)
-                        thisAmount += (each.getDaysRented() - 2) * 1.5;
+                    if (each.getDaysRented() > REGULAR_RENTAL_DAYS)
+                        thisAmount += (each.getDaysRented() - REGULAR_RENTAL_DAYS) * 1.5;
                     break;
                 case Movie.NEW_RELEASE:
                     thisAmount += each.getDaysRented() * 3;
                     break;
                 case Movie.CHILDRENS:
                     thisAmount += 1.5;
-                    if (each.getDaysRented() > 3)
-                        thisAmount += (each.getDaysRented() - 3) * 1.5;
+                    if (each.getDaysRented() > CHILDRENS_RENTAL_DAYS)
+                        thisAmount += (each.getDaysRented() - CHILDRENS_RENTAL_DAYS) * 1.5;
                     break;
             }
 
             frequentRenterPoints++;
 
             if (each.getMovie().getPriceCode() == Movie.NEW_RELEASE
-                && each.getDaysRented() > 1)
+                    && each.getDaysRented() > 1)
                 frequentRenterPoints++;
 
             result += "\t" + each.getMovie().getTitle() + "\t"
-                + String.valueOf(thisAmount) + "\n";
+                    + String.valueOf(thisAmount) + "\n";
             totalAmount += thisAmount;
 
         }
