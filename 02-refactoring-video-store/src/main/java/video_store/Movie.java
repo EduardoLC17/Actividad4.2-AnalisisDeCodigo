@@ -12,6 +12,12 @@ public class Movie {
         this.title = title;
         this.priceCode = priceCode;
     }
+    //constructor copia
+    public Movie(Movie other) {
+        this.title = other.title;
+        this.priceCode = other.priceCode;
+    }
+
 
     public int getPriceCode() {
         return priceCode;

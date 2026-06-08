@@ -11,7 +11,7 @@ public class Rental {
     }
 
     public Movie getMovie() {
-        return movie;
+        return new Movie(movie);  //con un constructor copia
     }
 
     private Movie movie;

@@ -50,7 +50,7 @@ public class Customer {
                 frequentRenterPoints++;
 
             result += "\t" + each.getMovie().getTitle() + "\t"
-                + String.valueOf(thisAmount) + "\n";
+                + thisAmount + "\n";
             totalAmount += thisAmount;
 
         }
